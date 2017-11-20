@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { LocalStorageHelper } from '../shared/localStorageHelper';
 import { IProduct } from './product';
 import { ProductService } from './product.service';
 
@@ -15,7 +16,7 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
-    private _productService: ProductService) {
+    private _productService: ProductService,public _localStorageHelper: LocalStorageHelper) {
   }
 
   ngOnInit() {
@@ -32,5 +33,24 @@ export class ProductDetailComponent implements OnInit {
   onBack(): void {
     this._router.navigate(['/products']);
   }
+  Pedido():void {
+    var clients  =   this._localStorageHelper.getObject('clients');
+    
+        if(clients==null){
+            alert("Debe estar logueado");
+            this._router.navigate(['clients/']);
+        }else{
+           
+            alert("Agregado al carrito");
+            
+        }
+    
+   
+       
+ 
+
+}
+
+
 
 }
