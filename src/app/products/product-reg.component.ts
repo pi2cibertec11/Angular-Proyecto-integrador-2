@@ -22,13 +22,26 @@ ngOnInit():void{
     }
 }
 
-constructor(private _productService:ProductService){
+constructor(private _productService:ProductService,private _router: Router){
 
 }
 Registrar(){
     
-   let respuesta= this._productService.regProducts(this.products);
-   console.log("respuesta",respuesta);
+    let respuesta= this._productService.regProducts(this.products)
+    .subscribe(
+     (data)=>{console.log("a",data.valueOf());
+     if(data!=false){
+     alert(" Registro exitoso");
+     console.log("respuesta",data);
+     this._router.navigate(['products/']);
+     }else{
+      alert("Datos incorrectos");
+      console.log("respuesta",data);
+     }
+ }
+ 
+    )
+    
    
 }
 

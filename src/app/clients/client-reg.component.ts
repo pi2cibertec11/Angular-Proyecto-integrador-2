@@ -36,7 +36,7 @@ export class ClientRegComponent {
        
     }
 
-constructor(private _clientService:ClientService, fb:FormBuilder){
+constructor(private _clientService:ClientService, fb:FormBuilder,private _router: Router){
     this.form = fb.group({
         password: ['', Validators.required],
         confirmPassword: ['', Validators.required]
@@ -52,6 +52,7 @@ Registrar(){
        if(data=true){
        alert(" Registro exitoso");
        console.log("respuesta",data);
+       this._router.navigate(['clients/']);
        }else{
         alert("Datos incorrectos");
         console.log("respuesta",data);
