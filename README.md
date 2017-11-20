@@ -1,2 +1,2 @@
-# Angular---Proyecto-integrador-2
-Aplicacion web desarrolada en Angular 2
+# Angular-Proyecto-integrador-2 
+Aplicacion web desarrollada en Angular 2
