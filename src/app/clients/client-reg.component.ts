@@ -48,8 +48,8 @@ constructor(private _clientService:ClientService, fb:FormBuilder,private _router
 Registrar(){
     
    let respuesta= this._clientService.postClients(this.clients)
-   .subscribe((data:boolean)=>{
-       if(data=true){
+   .subscribe((data)=>{console.log("a",data.valueOf());
+       if(data!=false){
        alert(" Registro exitoso");
        console.log("respuesta",data);
        this._router.navigate(['clients/']);

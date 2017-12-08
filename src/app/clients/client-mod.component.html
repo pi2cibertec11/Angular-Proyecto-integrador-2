@@ -16,14 +16,23 @@
            <div class="text-center" style="font-size:18px ; margin-left:12px">Apellidos:</div>
            <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="Apellidos" [(ngModel)]='clients.ApellidosCliente'/> </div> 
            <br> 
+           <div class="text-center" style="font-size:18px ; margin-left:12px">Dni:</div>
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="dni" [(ngModel)]='clients.Dni'/> </div> 
+           <br> 
+           <div class="text-center" style="font-size:18px ; margin-left:12px">Direccion:</div>
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="direccion" [(ngModel)]='clients.Direccion'/> </div> 
+           <br> 
            <div class="text-center" style="font-size:18px ; margin-left:12px">Teléfono:</div>
            <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="Telefono" [(ngModel)]='clients.TelefonoCliente' /> </div> 
            <br>
+           <div class="text-center" style="font-size:18px ; margin-left:12px">Correo:</div>
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="Email" [(ngModel)]='clients.Email'  readonly/> </div> 
+           <br>
            <div class="text-center" style="font-size:18px ; margin-left:12px">Contraseña:</div>
-           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="Contraseña" [(ngModel)]='clients.Password'  /> </div> 
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="password" placeholder="Contraseña" [(ngModel)]='clients.Password'  /> </div> 
            <br> 
            <br>
-           <div class="g-recaptcha" data-sitekey="6Le3bTAUAAAAAKNknB5MHjT0BwFTWoSmw7V8S7zN"></div>
+           
            <div class="text-center">  
                                                                           <button id="btnModificar" class='btn btn-success' style='width:100px'  style="margin-left: 12px" (click)="Modificar()" >
            Modicar Usuario

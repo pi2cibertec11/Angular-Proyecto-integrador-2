@@ -17,6 +17,7 @@ export class ClientService {
     
     private _clienttUrl0="http://localhost:4268/api/clientes/login";
     private _clienttUrl = "http://localhost:4268/api/clientes/regclientes";
+    private _clientUrl2 ="http://localhost:4268/api/clientes/ActualizarClientes";
     
     constructor(private _http: Http,private _localStorageHelper : LocalStorageHelper) {
         console.log("clients service");
@@ -31,10 +32,16 @@ export class ClientService {
      postClients(clients: IClient) {
         return this._http.post(this._clienttUrl, clients)
 
-            .map((Response: Response) => <Boolean>Response.ok)
+            .map((Response: Response) => <Boolean>Response.json())
 
             
     }
+
+    putClientes(clients:IClient){
+        return this._http.put(this._clientUrl2,clients)
+        .map((Response:Response)=><Boolean> Response.json())
+    }
+
 
     LoginClients(clients: IClient): Observable<IClient> {
         var body={
