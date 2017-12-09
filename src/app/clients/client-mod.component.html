@@ -5,31 +5,32 @@
         <br>
         <div class="text-center">ACTUALIZAR USUARIO</div>
     </div>
+   
     <div class="panel-body" input style="background-color: #D0EB9F" >
         <div  class="row" style="font-size:18px" style="margin-left: 20px" >
                     
-                
+           
 
            <div class="text-center" style="font-size:18px ; margin-left:12px">Nombres:</div>   
-           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px; background-color:lavender ; margin-left:12px" type="text" placeholder="Nombre Completo" [(ngModel)]='clients.NombreCliente' /> </div> 
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px; background-color:lavender ; margin-left:12px" type="text" placeholder="Nombre Completo" [(ngModel)]='clients.NombreCliente' maxlength='16' /> </div> 
            <br>
            <div class="text-center" style="font-size:18px ; margin-left:12px">Apellidos:</div>
-           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="Apellidos" [(ngModel)]='clients.ApellidosCliente'/> </div> 
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="Apellidos" [(ngModel)]='clients.ApellidosCliente'  maxlength='16'  /> </div> 
            <br> 
            <div class="text-center" style="font-size:18px ; margin-left:12px">Dni:</div>
-           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="dni" [(ngModel)]='clients.Dni'/> </div> 
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text"   placeholder="dni" [(ngModel)]='clients.Dni' maxlength='8'  /> </div> 
            <br> 
            <div class="text-center" style="font-size:18px ; margin-left:12px">Direccion:</div>
-           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="direccion" [(ngModel)]='clients.Direccion'/> </div> 
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="direccion" [(ngModel)]='clients.Direccion'  maxlength='18'  /> </div> 
            <br> 
            <div class="text-center" style="font-size:18px ; margin-left:12px">Teléfono:</div>
-           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="Telefono" [(ngModel)]='clients.TelefonoCliente' /> </div> 
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="Telefono" [(ngModel)]='clients.TelefonoCliente'  maxlength='10'  /> </div> 
            <br>
            <div class="text-center" style="font-size:18px ; margin-left:12px">Correo:</div>
            <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="Email" [(ngModel)]='clients.Email'  readonly/> </div> 
            <br>
            <div class="text-center" style="font-size:18px ; margin-left:12px">Contraseña:</div>
-           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="password" placeholder="Contraseña" [(ngModel)]='clients.Password'  /> </div> 
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="password" placeholder="Contraseña" [(ngModel)]='clients.Password' maxlength='16' /> </div> 
            <br> 
            <br>
            
@@ -38,6 +39,7 @@
            Modicar Usuario
         </button>
            </div>
+        
 <div class="modal"  id="sucessmodal" tabindex="-1" data-keyboard="false" data-backdrop="static">
 <div class="modal-dialog modal-sm">
     <div class="modal-content">

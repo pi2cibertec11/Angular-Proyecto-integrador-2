@@ -7,15 +7,10 @@
            <div class="text-center" style="font-size:25px">¿No Tienes una cuenta? <a [routerLink]="['/clientsreg']">Registrate</a></div>
            <br><br>
            
-           <div class="text-center" ><input #email="ngModel" id="email" style="border-color:cyan;border-radius:7px; background-color:lavender" type="text" placeholder="Correo electronico" [(ngModel)]='clients.Email' > </div> 
-           <div class="text-center" style="font-size:15px" >
-            Debe escribir el email
-          </div>
-          <div class="text-center" style="font-size:15px" >
-            El email debe ser tener 6 caracteres como minimo 
-          </div>
+           <div class="text-center" ><input #email="ngModel" id="email" style="border-color:cyan;border-radius:7px; background-color:lavender" type="text" placeholder="Correo electronico" [(ngModel)]='clients.Email' maxlength='16' > </div> 
+           
            <br>
-           <div class="text-center" ><input style="border-color:cyan;border-radius:7px ; background-color:lavender" type="text" placeholder="Contraseña" [(ngModel)]='clients.Password'  > </div> 
+           <div class="text-center" ><input style="border-color:cyan;border-radius:7px ; background-color:lavender" type="text" placeholder="Contraseña" [(ngModel)]='clients.Password' maxlength='16'  > </div> 
            <br>
            <div class="text-center"> <button type="button" (click)='Ingresar();borrar()' > Ingresar </button> </div>
            <br> <br>

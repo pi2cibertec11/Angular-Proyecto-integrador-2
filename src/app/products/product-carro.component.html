@@ -1,3 +1,31 @@
+<popup #popup5 (confirmClick)="validarpago()">
+    
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="inputEmai3" class="col-sm-3 control-label">Pagar con:</label>
+            <div class="col-sm-7">
+            <input type="text" class="form-control" name="nomTarjeta" [(ngModel)]="tarjeta.nomTarjeta" id="email" placeholder="nombre de tarjeta">
+            </div>
+        </div>
+         <div class="form-group">
+            <label for="inputEmai3" class="col-sm-3 control-label">Numero de tarjeta:</label>
+            <div class="col-sm-7">
+            <input type="password" class="form-control" name="numTarjeta" [(ngModel)]="tarjeta.numTarjeta" id="password" placeholder="numero de tarjeta">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group text-right">
+                <div class="col-sm-offset-3 col-sm-7">
+              
+                </div>
+            </div>
+        </div>
+    
+    </form>
+    
+    </popup>
+
+
 <div class='panel panel-primary'>
     <div class='panel-heading'>
         {{pageTitle}}
@@ -54,8 +82,13 @@
                     value={{totalf}}  readonly/> </div>
         </div>
         <div  class="text-left">
-                <button    id="btnRegistrar" class='btn btn-success' style='width:100px' style="margin-left: 12px" (click)="Registroboleta()">
+                <button  *ngIf="validado()"  id="btnRegistrar" class='btn btn-success' style='width:100px' style="margin-left: 12px" (click)="Registroboleta()">
                     Realizar Pedido
+                </button>
+            </div>
+            <div  class="text-left">
+                <button    id="btnRegistrar" class='btn btn-success' style='width:100px' style="margin-left: 12px" (click)="Pagar()">
+                    Pagar
                 </button>
             </div>
 

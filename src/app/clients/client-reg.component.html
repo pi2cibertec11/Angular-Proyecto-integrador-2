@@ -11,43 +11,43 @@
 
             <div class="text-left">
                 <input style="border-color:cyan;border-radius:7px; background-color:lavender ; margin-left:12px" type="text"
-                    placeholder="Nombre Completo" [(ngModel)]='clients.NombreCliente' /> </div>
+                    placeholder="Nombre Completo" [(ngModel)]='clients.NombreCliente' maxlength='16' /> </div>
             <br>
             <div class="text-left" style="font-size:18px ; margin-left:12px">Apellidos:</div>
             <div class="text-left">
                 <input style="border-color:cyan;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text"
-                    placeholder="Apellidos" [(ngModel)]='clients.ApellidosCliente' /> </div>
+                    placeholder="Apellidos" [(ngModel)]='clients.ApellidosCliente' maxlength='16' /> </div>
             <br>
             <div class="text-left" style="font-size:18px ; margin-left:12px">Dni:</div>
             <div class="text-left">
                 <input style="border-color:cyan;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text"
-                    placeholder="Correo" [(ngModel)]='clients.Dni' /> </div>
+                    placeholder="Correo" [(ngModel)]='clients.Dni'  maxlength='8' /> </div>
             <br>
             <div class="text-left" style="font-size:18px ; margin-left:12px">Direccion:</div>
             <div class="text-left">
                 <input style="border-color:cyan;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text"
-                    placeholder="Direccion" [(ngModel)]='clients.Direccion' /> </div>
+                    placeholder="Direccion" [(ngModel)]='clients.Direccion' maxlength='18' /> </div>
             <br>
             <div class="text-left" style="font-size:18px ; margin-left:12px">Teléfono:</div>
             <div class="text-left">
                 <input style="border-color:cyan;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text"
-                    placeholder="Telefono" [(ngModel)]='clients.TelefonoCliente' /> </div>
+                    placeholder="Telefono" [(ngModel)]='clients.TelefonoCliente' maxlength='9' /> </div>
             <br>
             <div class="text-left" style="font-size:18px ; margin-left:12px">Email:</div>
             <div class="text-left">
                 <input style="border-color:cyan;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text"
-                    placeholder="Email" [(ngModel)]='clients.Email' /> </div>
+                    placeholder="Email" [(ngModel)]='clients.Email' maxlength='16'  /> </div>
             <br>
             <div [formGroup]="form"  >
             <div class="text-left" style="font-size:18px ; margin-left:12px">Contraseña:</div>
             <div class="form-group text-left">
                 <input [formGroup]="form" id="password" formControlName="password" class="form-control" style="width:200px;border-color:cyan;border-radius:7px ; background-color:lavender ; margin-left:12px"
-                    type="text" placeholder="Contraseña" [(ngModel)]='clients.Password' /> </div>
+                    type="text" placeholder="Contraseña" [(ngModel)]='clients.Password' maxlength='16' /> </div>
             
             <div class="text-left " style="font-size:18px ; margin-left:12px"> Confirmar Contraseña:</div>
             <div class="form-group text-left">
                 <input [formGroup]="form" id="confirmPassword" formControlName="confirmPassword" class="form-control" style="width:200px;border-color:cyan;border-radius:7px ; background-color:lavender ; margin-left:12px"
-                    type="text" placeholder="Repetir contraseña" [(ngModel)]='repetir' /> </div>
+                    type="text" placeholder="Repetir contraseña" [(ngModel)]='repetir' maxlength='16' /> </div>
 
             </div>
             <div class="alert alert-danger" *ngIf="form.controls.confirmPassword.errors?.MatchPassword">Las contraseñas no coinciden</div>

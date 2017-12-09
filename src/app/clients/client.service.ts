@@ -68,6 +68,7 @@ export class ClientService {
         this.clients = null;
         this._localStorageHelper.removeItem('clients');
         this._localStorageHelper.removeItem('arreglo');
+        this._localStorageHelper.removeItem('tarjeta');
     }
 
 

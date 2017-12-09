@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import {Popup} from 'ng2-opd-popup';
+import {PopupModule} from 'ng2-opd-popup';
 import { ProductListComponent } from './product-list.component';
 import { ProductDetailComponent } from './product-detail.component';
 import { ConvertToSpacesPipe } from '../shared/convert-to-spaces.pipe';
@@ -12,11 +14,14 @@ import {ProductModComponent} from './product-mod.component';
 import {ProductCarroComponent} from './product-carro.component';
 import {ReporteComponent} from './reporte.component';
 
+
 @NgModule({
   imports: [
+    PopupModule.forRoot(),
     RouterModule.forChild([
         { path: 'products', component: ProductListComponent },
         { path: 'reporte', component: ReporteComponent },
+       
         { path: 'productmod', component: ProductModComponent },
         { path: 'productcarro', component: ProductCarroComponent },
         { path: 'productsreg', component: ProductRegComponent, canActivate:[ClienteGuard] },
@@ -26,11 +31,13 @@ import {ReporteComponent} from './reporte.component';
     ]),
     SharedModule
   ],
+
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
     ProductModComponent,
     ReporteComponent,
+    
     ProductCarroComponent,
     ConvertToSpacesPipe,
     ProductRegComponent

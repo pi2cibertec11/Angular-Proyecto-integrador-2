@@ -1,4 +1,4 @@
-import { Component, OnInit, Output} from '@angular/core';
+import { Component, OnInit, Output,ViewChild} from '@angular/core';
 import {Router} from '@angular/router'
 import { IProduct } from './product';
 import {ProductService} from './product.service';
@@ -9,6 +9,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
+import {Popup} from 'ng2-opd-popup';
+import {ITarjeta} from './tarjeta';
 
 @Component({
     templateUrl: './product-carro.component.html',
@@ -18,6 +20,8 @@ import 'rxjs/add/operator/map';
 })
 
 export class ProductCarroComponent implements OnInit {
+    @ViewChild('popup5') popup5: Popup;
+    
     pageTitle: string = 'Lista de platillos añadidos al carrito';
     imageWidth: number = 80;
     imageMargin: number = 5;
@@ -29,6 +33,8 @@ export class ProductCarroComponent implements OnInit {
     boleta:IBoleta;
     detalleboleta:IDBoleta;
     numero:number;
+    tarjeta:ITarjeta;
+    validado2 :boolean =false;
     
 
     _listFilter: string;
@@ -62,7 +68,14 @@ export class ProductCarroComponent implements OnInit {
     constructor(private _router: Router,private _productService:ProductService,public _localStorageHelper: LocalStorageHelper){
         var clients  =   this._localStorageHelper.getObject('clients');
         console.log("clients",clients);
+        this.tarjeta=<ITarjeta>{
+            numTarjeta:0,
+            IDCliente:clients["IDCliente"],
+            nomTarjeta:""
+        }
+        console.log("tarjeta",this.tarjeta)
     }
+    
     sumar():number{
         this.totalf = 0;
 
@@ -70,6 +83,43 @@ export class ProductCarroComponent implements OnInit {
             this.totalf = this.totalf + Number(e.platoprice);
         });
        return this.totalf;
+    }
+    validado(){
+        var algo=this._localStorageHelper.getObject('tarjeta');
+       if(this._localStorageHelper.getObject('tarjeta')!=null){
+           console.log("lleno",algo)
+            return true;
+       }else{
+           return false;
+       }
+    }
+
+    validarpago():void {
+
+        console.log("");
+        var response = this._productService.getTarjeta(this.tarjeta)
+        .subscribe(
+        tarjeta => {this.tarjeta = tarjeta;
+            if(this.tarjeta==null){
+                alert("Datos incorrectos");
+                this.tarjeta = <ITarjeta>{
+                    numTarjeta:0,
+                    IDCliente:0,
+                    nomTarjeta:"",
+                }   
+            }else{
+                this._localStorageHelper.saveObject('tarjeta',tarjeta);
+                alert("Validacion correcta");
+             
+                this.popup5.hide();
+               
+            }
+        }
+        )
+        ;
+           
+     
+
     }
 
     RegistrarPed(){
@@ -90,6 +140,18 @@ export class ProductCarroComponent implements OnInit {
         )
         
        
+    }
+    Pagar(){
+        this.popup5.options = {
+            cancleBtnClass: "btn btn-default", 
+            confirmBtnClass: "btn btn-mbe-attack",
+            color: "#A0DE4F",
+            header: "Validacion de pago",
+            widthProsentage:50,
+            animation: "bounceInDown",
+            cancleBtnContent:"Cancelar",
+            confirmBtnContent: "Ingresar Datos"}
+    this.popup5.show(this.popup5.options);
     }
     RegistrarDetPed(){
         
@@ -116,6 +178,8 @@ export class ProductCarroComponent implements OnInit {
         try{
            this.RegistrarPed();
            this.RegistroMasivo();
+           this._localStorageHelper.removeItem('tarjeta');
+           this._localStorageHelper.removeItem('arreglo');
         }catch (Exception){
            alert ("error");
         }
@@ -165,6 +229,7 @@ export class ProductCarroComponent implements OnInit {
         this.filteredProducts =this.products;
         this.sumar();
         this.buscar();
+        
         this.boleta=<IBoleta>{
             
             IDCliente:nom["IDCliente"],
@@ -172,6 +237,7 @@ export class ProductCarroComponent implements OnInit {
             total:this.totalf
     
          }
+         
          
          
          

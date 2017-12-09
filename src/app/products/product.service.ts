@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { IProduct } from './product';
 import {IBoleta} from './boleta';
 import {IDBoleta} from './detalleboleta';
+import {ITarjeta} from './tarjeta';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
@@ -13,7 +14,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductService {
  boleta : IBoleta []=[];
-
+tarjeta: ITarjeta;
     private _productUrl = "http://localhost:4268/api/platos/listarplatos";
     private _productUrl1 = "http://localhost:4268/api/platos/regplatos";
     private _productUrl3="http://localhost:4268/api/platos/actualizarPlatos";
@@ -23,6 +24,7 @@ export class ProductService {
 
         private _productUrl7="http://localhost:4268/api/boleta/ListarBoleta";
         private _productUrl8="http://localhost:4268/api/boleta/ListarBoleta2";
+        private _productUrl9="http://localhost:4268/api/Tarjeta/Login";
     constructor(private _http: Http) {
 
     }
@@ -58,6 +60,19 @@ export class ProductService {
         var request = this._http.post(this._productUrl8,body);
         return request.map((response: Response) => <IBoleta[]>response.json())
         .do(data=>this.boleta =data)
+        //.do(data => console.log('All: ' + JSON.stringify(data)))
+        .catch(this.handleError);
+    }
+
+    getTarjeta(tarjeta:ITarjeta): Observable<ITarjeta> {
+        var body={
+            numTarjeta:tarjeta.numTarjeta,
+            IDCliente:tarjeta.IDCliente,
+            nomTarjeta:tarjeta.nomTarjeta 
+        };
+        var request = this._http.post(this._productUrl9,body);
+        return request.map((response: Response) => <ITarjeta>response.json())
+        .do(data=>this.tarjeta =data)
         //.do(data => console.log('All: ' + JSON.stringify(data)))
         .catch(this.handleError);
     }

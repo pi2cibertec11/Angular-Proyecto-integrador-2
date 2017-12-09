@@ -15,6 +15,7 @@ import { LocalStorageHelper} from './shared/localStorageHelper';
                     <li><a [routerLink]="['/welcome']">Inicio</a></li>
                     <li><a [routerLink]="['/products']">Lista de Platillos</a></li>
                     <li><a  *ngIf="usuarioLogueado()" [routerLink]="['/clients']">Iniciar Sesión</a></li>
+                    <li><a  *ngIf="!usuarioLogueado()"  [routerLink]="['/productcarro']">Ver carrito de compras</a></li>
                     <li><a  *ngIf="esAdministrador()"  [routerLink]="['/productsreg']">Registrar Platillos</a></li>
                     <li><a  *ngIf="!usuarioLogueado()" [routerLink]="['/clientsmod']"> Actualizar Datos </a></li>
                     <li><a  *ngIf="esAdministrador()" [routerLink]="['/reporte']"> Reporte de ventas </a></li>

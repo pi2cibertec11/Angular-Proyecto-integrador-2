@@ -14,6 +14,7 @@ import {ClientService } from './clients/client.service';
 import * as bootstrap from 'bootstrap';
 import * as jquery from 'jquery';
 import {FormsModule} from '@angular/forms';
+import {PopupModule} from 'ng2-opd-popup';
 
 import { LocalStorageHelper } from './shared/localStorageHelper';
 
@@ -31,6 +32,7 @@ import { LocalStorageHelper } from './shared/localStorageHelper';
     HttpClientModule,
     HttpModule,
     FormsModule,
+    PopupModule.forRoot(),
     RouterModule.forRoot([
         { path: 'welcome', component: WelcomeComponent },
         { path: '', redirectTo: 'welcome', pathMatch: 'full'},
