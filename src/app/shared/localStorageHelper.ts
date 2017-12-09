@@ -30,6 +30,19 @@ export class LocalStorageHelper {
         }
         
     }
+    getObject2(key : string){
+        try{
+
+            let object = this.getItem(key);
+            if (object) {
+                object = JSON.parse(object);
+            }
+            return object;
+        }catch(e){
+            localStorage.removeItem(key);
+        }
+        
+    }
     getItem(key : string) {
         return localStorage.getItem(key);
     }

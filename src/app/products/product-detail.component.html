@@ -33,7 +33,10 @@
             </div>
         </div>
         <a class='btn btn-default' (click)='Pedido()'  style='width:100px'  style="margin-left: 800px" >
-            Agregar
+            Agregar al carrito
+        </a>
+        <a  *ngIf="esAdministrador()"   class='btn btn-default' (click)='modificar()'  style='width:100px'  style="margin-left: 800px" >
+            Modificar
         </a>
     </div>
 

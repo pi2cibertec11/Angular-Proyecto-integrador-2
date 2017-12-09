@@ -1,0 +1,49 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body' >
+            <div class='row'>
+                    <div class='col-md-2'>Filtrar por fecha:</div>
+                    <div class='col-md-4'>
+                        <input type='date' [(ngModel)]='fecha' />
+                        <button  (click)="filtrar()" >Filtrar</button>
+                    </div>
+                </div>
+       
+        <div class='table-responsive' >
+            <table class='table'
+                    *ngIf='boleta && boleta.length'>
+                <thead>
+                    <tr>
+                    
+                        <th>id de Boleta</th>
+                        <th>IDCliente</th>
+                        
+                        <th>NombreCliente</th>
+                        <th>Fecha de boleta</th>
+                        <th>Total </th>
+                    </tr>
+                </thead>
+                <tbody>
+                        
+<tr *ngIf="!boleta">
+    <td colspan="5"> Loading Data please wait ...</td>
+</tr>
+   
+                    <tr *ngFor='let boleta of boleta' >
+                        <td>{{ boleta.idbol}}</td>
+                        <td>{{ boleta.IDCliente}}</td>
+                        <td>{{ boleta.NombreCliente}}</td>
+                        <td>{{ boleta.fechabol}}</td>
+                        <td>{{ boleta.total}}</td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div *ngIf='errorMessage' class='alert alert-danger'>
+    Error: {{ errorMessage }}
+</div>

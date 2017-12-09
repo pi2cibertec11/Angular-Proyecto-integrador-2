@@ -8,11 +8,17 @@ import { ProductService } from './product.service';
 import { SharedModule } from './../shared/shared.module';
 import {ProductRegComponent} from './product-reg.component';
 import {ClienteGuard} from '../clients/client.guard';
+import {ProductModComponent} from './product-mod.component';
+import {ProductCarroComponent} from './product-carro.component';
+import {ReporteComponent} from './reporte.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
         { path: 'products', component: ProductListComponent },
+        { path: 'reporte', component: ReporteComponent },
+        { path: 'productmod', component: ProductModComponent },
+        { path: 'productcarro', component: ProductCarroComponent },
         { path: 'productsreg', component: ProductRegComponent, canActivate:[ClienteGuard] },
         { path: 'products/:id',
           canActivate: [ ProductGuardService ],
@@ -23,6 +29,9 @@ import {ClienteGuard} from '../clients/client.guard';
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
+    ProductModComponent,
+    ReporteComponent,
+    ProductCarroComponent,
     ConvertToSpacesPipe,
     ProductRegComponent
   ],

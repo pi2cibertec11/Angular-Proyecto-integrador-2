@@ -1,0 +1,70 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class='panel-body' >
+        
+        <div class='table-responsive' >
+            <table class='table'
+                    *ngIf='products && products.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class='btn btn-primary'
+                                (click)='toggleImage()'>
+                                {{showImage ? 'Hide' : 'Show'}} Image
+                            </button>
+                        </th>
+                        <th>Plato</th>
+                        <th>Descripcion</th>
+                        
+                        <th>Precio</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+<tr *ngIf="!products">
+    <td colspan="5"> Loading Data please wait ...</td>
+</tr>
+
+                    <tr *ngFor='let product of filteredProducts'>
+                        <td>
+                            <img *ngIf='showImage'
+                                [src]='product.imageUrl'
+                                [title]='product.platoNombre'
+                                [style.width.px]='imageWidth'
+                                [style.margin.px]='imageMargin'>
+                        </td>
+                        <td><a [routerLink]="['/products', product.platoId]">
+                                {{ product.platoNombre }}
+                            </a>
+						</td>
+                        <td>{{ product.platodescrip}}</td>
+                        
+                        <td>{{ product.platoprice | currency:'USD':true:'1.2-2'}}</td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+
+            <div  class="text-right" style="font-size:18px ; margin-right:80px">Total a pagar:</div>
+            <div class="text-right">
+                
+                <input style="border-color:cyan;border-radius:7px; background-color:lavender ; margin-left:12px" type="text"
+                    value={{totalf}}  readonly/> </div>
+        </div>
+        <div  class="text-left">
+                <button    id="btnRegistrar" class='btn btn-success' style='width:100px' style="margin-left: 12px" (click)="Registroboleta()">
+                    Realizar Pedido
+                </button>
+            </div>
+
+
+
+    </div>
+</div>
+
+<br>
+<div *ngIf='errorMessage' class='alert alert-danger'>
+    Error: {{ errorMessage }}
+</div>

@@ -17,6 +17,7 @@ import { LocalStorageHelper} from './shared/localStorageHelper';
                     <li><a  *ngIf="usuarioLogueado()" [routerLink]="['/clients']">Iniciar Sesión</a></li>
                     <li><a  *ngIf="esAdministrador()"  [routerLink]="['/productsreg']">Registrar Platillos</a></li>
                     <li><a  *ngIf="!usuarioLogueado()" [routerLink]="['/clientsmod']"> Actualizar Datos </a></li>
+                    <li><a  *ngIf="esAdministrador()" [routerLink]="['/reporte']"> Reporte de ventas </a></li>
                 </ul>
                 <ul class='nav navbar-nav2'>
                 <li><a *ngIf="existeUsuario()" style="float:right" [routerLink]="['/clients']" (click)="salir()" >Salir </a></li>

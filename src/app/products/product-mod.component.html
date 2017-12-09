@@ -1,0 +1,70 @@
+
+<div class="panel panel-primary"  >
+    <div class="panel-heading" input style="background-color: #E2A83D">
+        <br>
+        <div class="text-center">ACTUALIZAR PLATILLO</div>
+    </div>
+    <div class="panel-body" input style="background-color: #D0EB9F" >
+        <div  class="row" style="font-size:18px" style="margin-left: 20px" >
+                    
+                
+
+           <div class="text-center" style="font-size:18px ; margin-left:12px">Nombre de platillo:</div>   
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px; background-color:lavender ; margin-left:12px" type="text" placeholder="Nombre" [(ngModel)]='products.platoNombre' readonly/> </div> 
+           <br>
+           <div class="text-center" style="font-size:18px ; margin-left:12px">Descripcion:</div>
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="Descripcion" [(ngModel)]='products.platodescrip'/> </div> 
+           <br> 
+           <div class="text-center" style="font-size:18px ; margin-left:12px">Precio:</div>
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="precio" [(ngModel)]='products.platoprice'/> </div> 
+           <br> 
+           <div class="text-center" style="font-size:18px ; margin-left:12px">Imagen URL:</div>
+           <div class="text-center" ><input style="border-color:#F5BB3E;border-radius:7px ; background-color:lavender ; margin-left:12px" type="text" placeholder="imagen url" [(ngModel)]='products.imageUrl'/> </div> 
+           <br>
+           
+           <div class="text-center">  
+                                                                          <button id="btnModificar" class='btn btn-success' style='width:100px'  style="margin-left: 12px" (click)="Modificar()" >
+           Modicar Platillo
+        </button>
+           </div>
+<div class="modal"  id="sucessmodal" tabindex="-1" data-keyboard="false" data-backdrop="static">
+<div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4>Success</h4>
+    </div>
+<div class="modal-body"><h2>Actualización de Datos Completo</h2></div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-success">
+            Cerrar</button>
+        </div>
+        <script type="text/javascript">
+    
+            $(document).ready(function(){
+                   $('#btnModificar').click(function()
+                   {
+                   $('#successmodal').modal('show');})
+               }
+            )
+           </script>
+
+ 
+</div>
+
+</div>
+
+
+        </div>
+       <br> <br>
+       <br> <br>
+        <div class="row"  >
+            <div class="text-center">Developed by:</div>
+            <h3 class="text-center">EquipoProyectoIntegador2</h3>
+
+        
+        </div>
+
+    </div>
+</div>
