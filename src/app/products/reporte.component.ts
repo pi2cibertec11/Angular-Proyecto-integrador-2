@@ -26,20 +26,41 @@ export class ReporteComponent implements OnInit {
     boleta:IBoleta []=[];
     detalleboleta:IDBoleta;
     numero:number;
-    fecha:Date ;
+    fecha:Date = new Date;
     boletas:IBoleta ;
 
 
     constructor(private _productService:ProductService){
         
     }
+    sumar():number{
+        this.totalf = 0;
+
+        this.boleta.forEach((e:any) => {
+            this.totalf = this.totalf + Number(e.total);
+        });
+        console.log("algo",this.boleta)
+       return this.totalf;
+
+    }
+    filtrar1(){
+        
+        this.boletas.fechabol=this.fecha;
+        this.filtrar();
+        
+        this.sumar();
+        
+        console.log("fecha",this.fecha);
+        console.log("fecha",this.boletas.fechabol);
+    }
 
     filtrar(){
 
-     this._productService.getBoletasFiltro(this.fecha)
+
+        this._productService.getBoletasFiltro(this.boletas)
      .subscribe(reporte => {
-        this.boletas = reporte;
-        console.log("cd",this.boletas);
+        this.boleta = reporte;
+        console.log("cd",this.boleta);
         
     },
         error => this.errorMessage = <any>error);
@@ -48,16 +69,21 @@ export class ReporteComponent implements OnInit {
 
 
     ngOnInit(): void {
-      
+       
+        this.boletas=<IBoleta>{
+            fechabol:new Date(this.fecha),
+        }
 
         this._productService.getBoleta()
                 .subscribe(reporte => {
                     this.boleta = reporte;
+                    this.sumar();
                     console.log("a",this.boleta);
                 },
                     error => this.errorMessage = <any>error);
 
                     
                     console.log("b",this.errorMessage)
+                   
     }
 }

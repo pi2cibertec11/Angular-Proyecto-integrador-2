@@ -12,6 +12,8 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductService {
+ boleta : IBoleta []=[];
+
     private _productUrl = "http://localhost:4268/api/platos/listarplatos";
     private _productUrl1 = "http://localhost:4268/api/platos/regplatos";
     private _productUrl3="http://localhost:4268/api/platos/actualizarPlatos";
@@ -49,9 +51,13 @@ export class ProductService {
             .map((products: IProduct[]) => products.find(p => p.platoId === id))
     }
 
-    getBoletasFiltro(fecha: Date): Observable<IBoleta> {
-        return this._http.get(this._productUrl8)
-        .map((response: Response) => <IBoleta[]>response.json())
+    getBoletasFiltro(boleta:IBoleta): Observable<IBoleta[]> {
+        var body={
+            fecha:boleta.fechabol    
+        };
+        var request = this._http.post(this._productUrl8,body);
+        return request.map((response: Response) => <IBoleta[]>response.json())
+        .do(data=>this.boleta =data)
         //.do(data => console.log('All: ' + JSON.stringify(data)))
         .catch(this.handleError);
     }
